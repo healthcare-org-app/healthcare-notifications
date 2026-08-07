@@ -1,0 +1,21 @@
+name: notifications-service
+port: 9000
+lang: python
+description: "notifications-service \u2014 domain: notifications"
+http_deps:
+- patient-communications-service
+- patients-service
+- audit-log-service
+publishes:
+- notification.requested
+- audit.event
+subscribes:
+- appointment.booked
+- appointment.cancelled
+- lab.result.available
+- imaging.result.available
+- prescription.issued
+- prescription.refill_requested
+- invoice.issued
+- invoice.paid
+- device.alert.triggered
